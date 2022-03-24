@@ -17,7 +17,7 @@ from pytgcalls import StreamType
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
 from pytgcalls.types.input_stream.quality import HighQualityAudio,    HighQualityVideo,    LowQualityVideo,    MediumQualityVideo
 from youtubesearchpython import VideosSearch
-from config import HNDLR, bot, call_py
+from config import HNDLR, bot, call_py, you, OWNER 
 from MusicTelethon.helpers.queues import QUEUE, add_to_queue, get_queue, clear_queue
 from MusicTelethon.helpers.decorators import authorized_users_only
 from MusicTelethon.helpers.handlers import skip_current_song, skip_item
@@ -95,8 +95,7 @@ async def play(client, m: Message):
 **🏷️ العنوان : [{songname}]({link})
 🎧 طلب من : {m.from_user.mention}
 🌛 لمعرفه الاوامر : `{HNDLR}الاوامر`
-𝑩𝒀 :『𝐒𝐏𝐈𝐃𝐄𝐑』༒『@OOFMO』
-""",                )
+𝑩𝒀 : {OWNER} ༒ {you}""",                )
             else:
                 await call_py.join_group_call(                    chat_id,                    AudioPiped(                        dl,                    ),                    stream_type=StreamType().pulse_stream,                )
                 add_to_queue(chat_id, songname, dl, link, "Audio", 0)
@@ -107,7 +106,7 @@ async def play(client, m: Message):
 **🏷️ العنوان : [{songname}]({link})
 🎧 طلب من : {m.from_user.mention}
 🌛 لمعرفه الاوامر : `{HNDLR}الاوامر`
-𝑩𝒀 :『𝐒𝐏𝐈𝐃𝐄𝐑』༒『@OOFMO』
+𝑩𝒀 : {OWNER} ༒ {you}
 """,                )
 
     else:
@@ -139,7 +138,7 @@ async def play(client, m: Message):
 ⏱️ مده المقطع : {duration}
 🎧 طلب من : {m.from_user.mention}
 🌛 لمعرفه الاوامر : `{HNDLR}الاوامر`
-𝑩𝒀 :『𝐒𝐏𝐈𝐃𝐄𝐑』༒『@OOFMO』
+𝑩𝒀 : {OWNER} ༒ {you}
 """,
                         )
                     else:
@@ -161,8 +160,7 @@ async def play(client, m: Message):
 ⏱️ مده المقطع : {duration}
 🎧 طلب من : {m.from_user.mention}
 🌛 لمعرفه الاوامر : `{HNDLR}الاوامر`
-𝑩𝒀 :『𝐒𝐏𝐈𝐃𝐄𝐑』༒『@OOFMO』
-""",
+𝑩𝒀 : {OWNER} ༒ {you}""",༒
                             )
                         except Exception as ep:
                             await huehue.edit(f"`{ep}`")
@@ -204,8 +202,7 @@ async def vplay(client, m: Message):
 **🏷️ العنوان : [{songname}]({link})
 🎧 طلب من : {m.from_user.mention}
 🌛 لمعرفه الاوامر : `{HNDLR}الاوامر`
-𝑩𝒀 :『𝐒𝐏𝐈𝐃𝐄𝐑』༒『@OOFMO』
-""",
+𝑩𝒀 :{OWNER} ༒ {you}""",
                 )
             else:
                 if Q == 720:
@@ -228,8 +225,7 @@ async def vplay(client, m: Message):
 **🏷️ العنوان : [{songname}]({link})
 🎧 طلب من : {m.from_user.mention}
 🌛 لمعرفه الاوامر : `{HNDLR}الاوامر`
-𝑩𝒀 :『𝐒𝐏𝐈𝐃𝐄𝐑』༒『@OOFMO』
-""",                )
+𝑩𝒀 : {OWNER} ༒ {you}""",                )
 
     else:
         if len(m.command) < 2:
@@ -262,7 +258,7 @@ async def vplay(client, m: Message):
 ⏱️ مده المقطع : {duration}
 🎧 طلب من : {m.from_user.mention}
 🌛 لمعرفه الاوامر : `{HNDLR}الاوامر`
-𝑩𝒀 :『𝐒𝐏𝐈𝐃𝐄𝐑』༒『@OOFMO』
+𝑩𝒀 : {OWNER} ༒ {you}
 """,                        )
                     else:
                         try:
@@ -276,7 +272,7 @@ async def vplay(client, m: Message):
 ⏱️ مده المقطع : {duration}
 🎧 طلب من : {m.from_user.mention}
 🌛 لمعرفه الاوامر : `{HNDLR}الاوامر`
-𝑩𝒀 :『𝐒𝐏𝐈𝐃𝐄𝐑』༒『@OOFMO』
+𝑩𝒀 : {OWNER} ༒ {you}
 """,                            )
                         except Exception as ep:
                             await huehue.edit(f"`{ep}`")
@@ -300,17 +296,17 @@ async def playfrom(client, m: Message):
         hmm = await m.reply(f"🔎 يأخذ {limit} أغنية عشوائية من {chat}**")
         try:
             async for x in bot.search_messages(chat, limit=limit, filter="audio"):
-                location = await x.download()
+                __cpLocation = await x.download()
                 if x.audio.title:
                     songname = x.audio.title[:30] + "..."
                 else:
                     songname = x.audio.file_name[:30] + "..."
                 link = x.link
                 if chat_id in QUEUE:
-                    add_to_queue(chat_id, songname, location, link, "Audio", 0)
+                    add_to_queue(chat_id, songname, __cpLocation, link, "Audio", 0)
                 else:
-                    await call_py.join_group_call(                        chat_id,                        AudioPiped(location),                        stream_type=StreamType().pulse_stream,                    )
-                    add_to_queue(chat_id, songname, location, link, "Audio", 0)
+                    await call_py.join_group_call(                        chat_id,                        AudioPiped(__cpLocation),                        stream_type=StreamType().pulse_stream,                    )
+                    add_to_queue(chat_id, songname, __cpLocation, link, "Audio", 0)
                     await m.reply_photo(
                         photo="https://telegra.ph/file/40c0ab31719a780e37b5c.jpg",
                         caption=f"""
@@ -318,7 +314,7 @@ async def playfrom(client, m: Message):
 🏷️ العنوان : [{songname}]({link})
 🎧 من الطلب : {m.from_user.mention}
 🌛 لمعرفه الاوامر : `{HNDLR}الاوامر`
-𝑩𝒀 :-『𝐒𝐏𝐈𝐃𝐄𝐑』༒『@OOFMO』
+𝑩𝒀 : {OWNER} ༒ {you}
 """,                    )
             await hmm.delete()
             await m.reply(                f"➕ يضيف {lmt} أغنية في قائمة الانتظار \n• ارسل {HNDLR}التشغيل_التلقائي لاضاف اغنيه في القائمه الانتضار**"            )
