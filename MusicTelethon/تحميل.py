@@ -11,7 +11,7 @@ from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Message
 from youtubesearchpython import SearchVideos
 from yt_dlp import YoutubeDL
-from config import HNDLR
+from config import HNDLR,OWNER, you
 @Client.on_message(filters.command(["تحميل", "تنزيل"], prefixes=f"{HNDLR}"))
 async def song(client, message: Message):
     urlissed = get_text(message)
@@ -41,7 +41,7 @@ async def song(client, message: Message):
     capy = f"""
 **🏷️ اسم الاغنيه :** [{thum}]({mo})
 **🎧 طلب من :** {message.from_user.mention}
-𝑩𝒀 :『𝐒𝐏𝐈𝐃𝐄𝐑』༒『@OOFMO』
+𝑩𝒀 : {OWNER} ༒ {you}
 """
     file_stark = f"{ytdl_data['id']}.mp3"
     await client.send_audio(        message.chat.id,        audio=open(file_stark, "rb"),        duration=int(ytdl_data["duration"]),        title=str(ytdl_data["title"]),        performer=str(ytdl_data["uploader"]),        thumb=sedlyf,        caption=capy,        progress=progress,        progress_args=(            pablo,            c_time,            f"**📥 تحميل** `{urlissed}`",            file_stark,        ),    )
@@ -188,7 +188,7 @@ async def vsong(client, message: Message):
     capy = f"""
 **🏷️ اسم الفيديو :** [{thum}]({mo})
 **🎧 طلب من :** {message.from_user.mention}
-𝑩𝒀 :『𝐒𝐏𝐈𝐃𝐄𝐑』༒『@OOFMO』
+𝑩𝒀 : {OWNER} ༒ {you}
 """
     await client.send_video(        message.chat.id,        video=open(file_stark, "rb"),        duration=int(ytdl_data["duration"]),        file_name=str(ytdl_data["title"]),        thumb=sedlyf,        caption=capy,        supports_streaming=True,        progress=progress,        progress_args=(            pablo,            c_time,            f"**📥 تحميل** `{urlissed}`",            file_stark,        ),    )
     await pablo.delete()
