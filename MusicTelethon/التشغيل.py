@@ -17,7 +17,7 @@ from pytgcalls import StreamType
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
 from pytgcalls.types.input_stream.quality import HighQualityAudio,    HighQualityVideo,    LowQualityVideo,    MediumQualityVideo
 from youtubesearchpython import VideosSearch
-from config import HNDLR, bot, call_py, you, OWNER 
+from config import HNDLR, bot, call_py,
 from MusicTelethon.helpers.queues import QUEUE, add_to_queue, get_queue, clear_queue
 from MusicTelethon.helpers.decorators import authorized_users_only
 from MusicTelethon.helpers.handlers import skip_current_song, skip_item
@@ -95,7 +95,7 @@ async def play(client, m: Message):
 **🏷️ العنوان : [{songname}]({link})
 🎧 طلب من : {m.from_user.mention}
 🌛 لمعرفه الاوامر : `{HNDLR}الاوامر`
-𝑩𝒀 : {OWNER} ༒ {you}""",                )
+""",                )
             else:
                 await call_py.join_group_call(                    chat_id,                    AudioPiped(                        dl,                    ),                    stream_type=StreamType().pulse_stream,                )
                 add_to_queue(chat_id, songname, dl, link, "Audio", 0)
@@ -138,7 +138,6 @@ async def play(client, m: Message):
 ⏱️ مده المقطع : {duration}
 🎧 طلب من : {m.from_user.mention}
 🌛 لمعرفه الاوامر : `{HNDLR}الاوامر`
-𝑩𝒀 : {OWNER} ༒ {you}
 """,
                         )
                     else:
@@ -160,7 +159,7 @@ async def play(client, m: Message):
 ⏱️ مده المقطع : {duration}
 🎧 طلب من : {m.from_user.mention}
 🌛 لمعرفه الاوامر : `{HNDLR}الاوامر`
-𝑩𝒀 : {OWNER} ༒ {you}""",༒
+""",
                             )
                         except Exception as ep:
                             await huehue.edit(f"`{ep}`")
@@ -202,7 +201,7 @@ async def vplay(client, m: Message):
 **🏷️ العنوان : [{songname}]({link})
 🎧 طلب من : {m.from_user.mention}
 🌛 لمعرفه الاوامر : `{HNDLR}الاوامر`
-𝑩𝒀 :{OWNER} ༒ {you}""",
+""",
                 )
             else:
                 if Q == 720:
@@ -225,7 +224,7 @@ async def vplay(client, m: Message):
 **🏷️ العنوان : [{songname}]({link})
 🎧 طلب من : {m.from_user.mention}
 🌛 لمعرفه الاوامر : `{HNDLR}الاوامر`
-𝑩𝒀 : {OWNER} ༒ {you}""",                )
+""",                )
 
     else:
         if len(m.command) < 2:
@@ -258,7 +257,6 @@ async def vplay(client, m: Message):
 ⏱️ مده المقطع : {duration}
 🎧 طلب من : {m.from_user.mention}
 🌛 لمعرفه الاوامر : `{HNDLR}الاوامر`
-𝑩𝒀 : {OWNER} ༒ {you}
 """,                        )
                     else:
                         try:
@@ -272,7 +270,6 @@ async def vplay(client, m: Message):
 ⏱️ مده المقطع : {duration}
 🎧 طلب من : {m.from_user.mention}
 🌛 لمعرفه الاوامر : `{HNDLR}الاوامر`
-𝑩𝒀 : {OWNER} ༒ {you}
 """,                            )
                         except Exception as ep:
                             await huehue.edit(f"`{ep}`")
@@ -314,7 +311,6 @@ async def playfrom(client, m: Message):
 🏷️ العنوان : [{songname}]({link})
 🎧 من الطلب : {m.from_user.mention}
 🌛 لمعرفه الاوامر : `{HNDLR}الاوامر`
-𝑩𝒀 : {OWNER} ༒ {you}
 """,                    )
             await hmm.delete()
             await m.reply(                f"➕ يضيف {lmt} أغنية في قائمة الانتظار \n• ارسل {HNDLR}التشغيل_التلقائي لاضاف اغنيه في القائمه الانتضار**"            )
