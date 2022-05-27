@@ -17,7 +17,7 @@ from pytgcalls import StreamType
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
 from pytgcalls.types.input_stream.quality import HighQualityAudio,    HighQualityVideo,    LowQualityVideo,    MediumQualityVideo
 from youtubesearchpython import VideosSearch
-from config import HNDLR, bot, call_py,
+from config import HNDLR, bot, call_py
 from MusicTelethon.helpers.queues import QUEUE, add_to_queue, get_queue, clear_queue
 from MusicTelethon.helpers.decorators import authorized_users_only
 from MusicTelethon.helpers.handlers import skip_current_song, skip_item
